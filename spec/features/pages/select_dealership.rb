@@ -23,7 +23,7 @@ class SelectDealership
     expect(page).to have_css(DEALER_LIST_BOX, text: name)
   end
 
-  def stall_for_asset_load(sec)
+  def wait_for_module_to_fully_load(sec)
     sleep(sec)
   end
 

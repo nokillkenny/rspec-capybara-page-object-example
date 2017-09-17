@@ -22,6 +22,8 @@ feature 'Credit Application User Flow up to SSN', %q{
     employment_info_page = EmploymentInfo.new
     identification_info_page = Identification.new
 
+    SLEEP_TIME_IN_SECS = 1
+
     #home page
     home_page.click_next
 
@@ -46,7 +48,7 @@ feature 'Credit Application User Flow up to SSN', %q{
 
     #validate dealership page
     select_dealership_page.validate_title('Select a Tesla Dealership')
-    select_dealership_page.stall_for_asset_load(1)
+    select_dealership_page.wait_for_module_to_fully_load(SLEEP_TIME_IN_SECS)
     select_dealership_page.fill_in_zip('92626')
     select_dealership_page.validate_expected_dealer('Tesla Costa Mesa')
     select_dealership_page.select_dealer('Tesla Costa Mesa')
