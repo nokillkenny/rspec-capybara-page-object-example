@@ -52,15 +52,15 @@ feature 'Credit Application User Flow up to SSN', %q{
     select_dealership_page.select_dealer('Tesla Costa Mesa')
 
     #validate Personal Info Page
-    personal_information_page.validate_title('Search For Financing')
+    personal_information_page.validate_title('Personal Information')
     personal_information_page.fill_in_valid_credentials
     personal_information_page.validate_active_button
     personal_information_page.click_continue
 
     # validate Residence page
     residence_page.validate_title('Residence Information')
-    residence_page.select_residence_type('Own')
     residence_page.fill_in_address_fields
+    residence_page.select_residence_type('Own')
     residence_page.select_state('California')
     residence_page.validate_active_button
     residence_page.click_next

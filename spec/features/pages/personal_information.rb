@@ -2,7 +2,7 @@ class PersonalInformation
   include Capybara::DSL
   include RSpec::Matchers
 
-  CONTENT_TITLE = '.contentTitle___S_Ugq'
+  SCREEN_TITLE = '.title'
   FIRST_NAME_FIELD = 'firstNameTextField'
   LAST_NAME_FIELD = 'lastNameTextField'
   DOB_FIELD = 'dobTextField'
@@ -13,7 +13,7 @@ class PersonalInformation
 
 
   def validate_title(name)
-    expect(page).to have_css(CONTENT_TITLE, text: name)
+    expect(page).to have_css(SCREEN_TITLE, text: name)
   end
 
 
