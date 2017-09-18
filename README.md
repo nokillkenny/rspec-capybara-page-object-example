@@ -1,17 +1,36 @@
 An example for capybara with page objects
 ============================================================
 
-I made this while running on OSX. You will need
+The setup below is intended for running on Macbook OSX. 
 
+You will need this before running: 
+
+    * Homebrew for OSX 
     * Ruby 2.4+
+
+To install Homebrew, in your terminal, run the command
+ 
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+To check which version of Ruby you have run this command in terminal
+
+    ruby -v
+
+If you don't have a preference to what version Ruby you're using, this command will install the most stable version of ruby available
+
+    brew install ruby
+     
+Firefox is installed as default. You will need Chromedriver installed to run tests for Chrome:     
+
+    brew install chromedriver
     
-Firefox is installed as default. You will need Chrome or Safari driver installed to run tests on those browsers     
+To run the test in chrome, change the broswer instance in `spec_helper.rb` from `:browser => :firefox` to `:browser => :chrome`
+     
 
-With homebrew :  `brew install chromedriver`
-
-After download, please run this command to get dependencies  
+Once you have completed the above steps, go to the project root folder and run this command to download ruby dependencies:  
 
     bundle install 
-To run the scenario:
+    
+Use this command to run the UI test:
 
-     bundle exec rspec spec/features/credit_app_user_flow.rb
+    bundle exec rspec spec/features/credit_app_user_flow.rb 
