@@ -11,6 +11,8 @@ You will need this before running:
 To install Homebrew, in your terminal, run the command
  
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    
+Type `brew` in your terminal to see if homebrew is installed. If it is not a known command, try restarting your terminal and run the command again.    
 
 To check which version of Ruby you have run this command in terminal
 
