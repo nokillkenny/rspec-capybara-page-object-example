@@ -20,13 +20,12 @@ If you don't have a preference to what version Ruby you're using, this command w
 
     brew install ruby
      
-Firefox is installed as default. You will need Chromedriver installed to run tests for Chrome:     
+Firefox is installed as the default browser to run selenium tests. You will need Chromedriver installed to run the test on Chrome:     
 
     brew install chromedriver
     
 To run the test in chrome, change the broswer instance in `spec_helper.rb` from `:browser => :firefox` to `:browser => :chrome`
      
-
 Once you have completed the above steps, go to the project root folder and run this command to download ruby dependencies:  
 
     bundle install 
