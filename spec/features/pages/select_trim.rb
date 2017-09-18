@@ -11,10 +11,8 @@ class SelectTrim
     expect(page).to have_css(CONTENT_TITLE, text: name)
   end
 
-  def click_year
-    within(DESKTOP_TAB) do
-      find('button', text: 2017).click
-    end
+  def click_year(date)
+    find('button', text: date).click
   end
 
   def validate_selected_year_and_trim(name)

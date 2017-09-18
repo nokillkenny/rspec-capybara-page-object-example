@@ -22,8 +22,6 @@ feature 'Credit Application User Flow up to SSN', %q{
     employment_info_page = EmploymentInfo.new
     identification_info_page = Identification.new
 
-    SLEEP_TIME_IN_SECS = 1
-
     #home page
     home_page.click_next
 
@@ -37,18 +35,18 @@ feature 'Credit Application User Flow up to SSN', %q{
 
     #trim page
     select_trim_page.validate_title('Select a Model X Trim')
-    select_trim_page.click_year
-    select_trim_page.validate_selected_year_and_trim('2017 Tesla Model X')
-    select_trim_page.select_car('90D AWD')
+    select_trim_page.click_year(2016)
+    select_trim_page.validate_selected_year_and_trim('2016 Tesla Model X')
+    select_trim_page.select_car('AWD 4dr P90D')
 
     #review details page
     review_details_page.validate_title('Review Details')
-    review_details_page.validate_car_details('2017 Tesla Model X 90D AWD $93,500 MSRP')
+    review_details_page.validate_car_details('2016 Tesla Model X AWD 4dr P90D $115,500 MSRP')
     review_details_page.click_confirm_details
 
     #validate dealership page
     select_dealership_page.validate_title('Select a Tesla Dealership')
-    select_dealership_page.wait_for_module_to_fully_load(SLEEP_TIME_IN_SECS)
+    select_dealership_page.wait_for_load_text_to_disappear('Finding Nearest Dealership')
     select_dealership_page.fill_in_zip('92626')
     select_dealership_page.validate_expected_dealer('Tesla Costa Mesa')
     select_dealership_page.select_dealer('Tesla Costa Mesa')

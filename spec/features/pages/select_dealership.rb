@@ -7,6 +7,9 @@ class SelectDealership
   DEALER_LIST_BOX = '.dealerList___3mNfb'
   LIST_OF_DEALERS = '.dealerListItem___3_3p6'
   SELECT_DEALER_BUTTON = '#confirmDealerCTA'
+  LOADING_LABEL = '.loadingLabel___3n3KT'
+
+  TIMEOUT = 5
 
   def validate_title(name)
     expect(page).to have_css(CONTENT_TITLE, text: name)
@@ -23,8 +26,10 @@ class SelectDealership
     expect(page).to have_css(DEALER_LIST_BOX, text: name)
   end
 
-  def wait_for_module_to_fully_load(sec)
-    sleep(sec)
+  def wait_for_load_text_to_disappear(name)
+    using_wait_time TIMEOUT.to_i do
+      page.has_no_css?(LOADING_LABEL, text: name)
+    end
   end
 
   def select_dealer(name)
